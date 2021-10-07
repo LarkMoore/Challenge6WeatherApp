@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -14,10 +12,12 @@
    <div class='app title'>
      <p>Weather Information</p>
      <input
-     id='search'
+     id="search-input"
      type='text'
      placeholder="Enter city/location"
      autocomplete="off" />
+    <button id="search">Get results!</button>
+
 
      <div class="location-icon">
        <img src="placeholder.img" alt="">
@@ -41,6 +41,6 @@
     </div>
  </div>
   <div></div>
+  <script src="./assets/js/script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
