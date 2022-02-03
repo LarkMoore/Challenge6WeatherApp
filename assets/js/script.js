@@ -15,6 +15,12 @@ searchBtn.addEventListener("click", function(){
     var url1 = "https://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid=8ea2e6b67fa9258a21713b8c7a16a2f7";
     fetch(url1)
     .then(function(response) {
+        console.log (response.status)
+        if (response.status !== 200) {
+          // display not found code
+          alert("error")
+          return;
+        }
         return response.json();
       })
       .then(function(data) {
@@ -32,92 +38,3 @@ searchBtn.addEventListener("click", function(){
         
       });
 })
-// input addEventListener.search
-// input= addEventListener ("keyup" , function(event) {
-
-//     if (keyCode ==13 ){
-//         event.preventDefault();
-
-//         city=input.value
-//         getSearchWeather(city)
-//         console.log(city)
-//     }
-// })
-// const weather ={}
-
-// weather.temperature ={
-//     unit: "celsius"
-// }
-
-// const KELVIN =273
-
-// const key= '8ea2e6b67fa9258a21713b8c7a16a2f7'
-
-// if("geolocation" in navigator) {
-//     navigator.geolocation.getCurrentPosition(setPosition,showError)
-// } else {
-//     notificationElement.style.display ='block'
-//     notificationElement.innerHTML='<p> Browser does not support geolocation </p>'
-// }
-
-// function setPosition(position) {
-//     latitude =position.coords.latitude
-//     longitude =position.coords.longitude
-
-//     getWeather(latitude,longitude)
-// }
-// locationIcon.addEventListener("click" ,function(event){
-//     console.log('helloworld')
-//     getWeather(latitude,longitude)
-// })
-
-// function showError(error) {
-//     notificationElement.style.display= "block"
-//     notificationElement.innerHTML= '<p> ${error.message} </p>'
-// }
-// function getSearchWeather(city) {
-//     let api= 'http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key]'
-
-//     fetch(api)
-//     .then(function (response) {
-//         let data= response.json ()
-//         return data
-//     })
-//     .then(function( data) {
-//         weather.temperature.value=Math.floor (data.main.temp -KELVIN)
-//         weather.description=data.weather[0].description
-//         weather.iconId= data.weather[0].icon
-//         weather.city=data.name
-//         weather.country= data.sys.country
-//     })
-//     .then(function() {
-//         displayWeather ()
-//     })
-// }
-// function getWeather(latitude,longitude) {
-//     let api= 'http://api.openweathermap.org/data/2.5/weather?lat=${latitude}lon=${longitude}&appid=${key}'
-
-//     fetch(api)
-//     .then(function (response) {
-//         let data= response.json ()
-//         return data
-//     })
-//     .then(function( data) {
-//         weather.temperature.value=Math.floor (data.main.temp -KELVIN)
-//         weather.description=data.weather[0].description
-//         weather.iconId= data.weather[0].icon
-//         weather.city=data.name
-//         weather.country= data.sys.country
-//     })
-//     .then(function() {
-//         displayWeather ()
-//     })
-// }
-
-// function displayWeather () {
-    
-//     iconElement.innerHTML=<img src=icons/${weather.iconId}.png />
-//     tempElement.innerHTML=${weather.temperature.value} *<span>C<span>
-//     descElement.innerHTML=weather.description
-//     locationElement.innerHTML=${weather.city}, ${weather.country}
-// }
